@@ -53,7 +53,7 @@ const users = {
   };
 
   const randNum = () => {
-    return Math.random();
+    return Math.round(Math.random() * 10000).toString();
   };
 
 app.get("/", (req, res) => {
@@ -99,7 +99,7 @@ app.post("/users", (req, res) => {
       res.status(404).send("Resource not found.");
     } else {
         users.users_list = users.users_list.filter(user => user.id !== id);
-        res.send(result);
+        res.send(204).send();
     }
   });
   
